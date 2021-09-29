@@ -1,0 +1,22 @@
+<header class="main-header">
+  <mat-toolbar>
+    <span class="main-header__navbar-brand" routerLink="/home"
+      ><b>4</b>IT</span
+    >
+    <span class="header-spacer"></span>
+    <button class="main-header__cart-button" routerLink="cart">
+      <mat-icon>shopping_cart </mat-icon>
+      <span class="itemsInCart">{{ numberOfItemsInCart }}</span>
+    </button>
+    <button
+      *ngIf="!isAuthenticated"
+      class="main-header__account-button"
+      routerLink="auth/login"
+    >
+      <mat-icon class="account-icon">person</mat-icon>
+    </button>
+    <button *ngIf="isAuthenticated" (click)="onToggleSidebar()" class="main-header__account-button">
+      <mat-icon class="account-icon-logged-in">person</mat-icon>
+    </button>
+  </mat-toolbar>
+</header>

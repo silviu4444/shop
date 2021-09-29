@@ -1,0 +1,45 @@
+@import '../../styles//global-colors.scss';
+.add-to-cart-button {
+  position: relative;
+  background-size: 100% 200%;
+  background-color: #760be0;
+  border-radius: 5px;
+  border-style: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  height: 60px;
+  transition: .3s;
+  user-select: none;
+  width: 200px;
+  padding-right: 20px;
+
+  mat-icon {
+    position: absolute;
+    top: 15px;
+    left: 140px;
+  }
+}
+
+.add-to-cart-button:disabled {
+  background-color: gray;
+  background-image: none;
+  cursor: not-allowed;
+}
+
+.add-to-cart-button:disabled:hover {
+  opacity: 1;
+}
+
+.add-to-cart-button:hover {
+  opacity: 0.7;
+}
+
+.changed-background {
+  background-color: #28a745;
+}
+
+.changed-background:hover {
+  opacity: 1;
+}

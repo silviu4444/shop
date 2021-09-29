@@ -1,0 +1,37 @@
+.cart-table-container {
+  display: flex;
+  justify-content: center;
+  mat-table {
+    width: 70%;
+    max-height: 70vh;
+    overflow-y: auto;
+    img {
+      width: 100px;
+      padding: 10px 0;
+    }
+
+    .mat-header-cell,
+    .mat-cell {
+      justify-content: center !important ;
+      align-items: center !important;
+    }
+
+    .table-price-container {
+      font-weight: 500;
+      .price {
+        display: inline-block;
+        font-size: 20px;
+      }
+    }
+
+    .cart-remove-button {
+      border: none;
+      background-color: transparent;
+      text-decoration: underline;
+    }
+
+    .cart-remove-button:hover {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+.home-item {
+  &__phone-product {
+    width: 200px;
+    margin: 10px;
+  }
+  &__phone-image {
+    width: 200px;
+  }
+  &__phone-title {
+    height: 50px;
+    font-size: 15px;
+    text-align: center;
+  }
+
+  &__stars {
+    margin: 10px auto;
+    width: fit-content;
+  }
+
+  &__price-container {
+    text-align: center;
+    color: red;
+    font-weight: 500;
+    .phone-price {
+        display: inline-block;
+        font-size: 25px;
+    }
+  }
+  mat-card:hover {
+    box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.4) !important;
+  }
+}
+
+.home-item:hover {
+  cursor: pointer;
+}

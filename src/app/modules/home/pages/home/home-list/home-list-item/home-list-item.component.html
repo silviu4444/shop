@@ -1,0 +1,28 @@
+<a class="home-item" (click)=showDetails()>
+  <mat-card class="home-item__phone-product">
+    <img
+      class="home-item__phone-image"
+      [src]="item.imgURL"
+      alt="{{ item.model }}"
+    />
+    <mat-card-header>
+      <mat-card-title
+        ><p class="home-item__phone-title">
+          {{ title | async }}
+        </p></mat-card-title
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <div class="home-item__stars">
+        <app-stars-raiting [raiting]="item.stars"></app-stars-raiting>
+        {{ item.stars }}({{ item.reviews }})
+      </div>
+      <div class="home-item__price-container">
+        <p class="phone-price">
+          {{ item.price }}
+        </p>
+        <span> 99</span> $
+      </div>
+    </mat-card-content>
+  </mat-card>
+</a>

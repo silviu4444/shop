@@ -1,0 +1,7 @@
+<div class="cart-container">
+  <h1 class="cart-empty" *ngIf="!cartItems; else content">Your cart is empty!</h1>
+  <ng-template #content>
+    <h1>Your Cart</h1>
+    <app-cart-table [dataSource]="tableData"></app-cart-table>
+  </ng-template>
+</div>

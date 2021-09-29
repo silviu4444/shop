@@ -1,0 +1,10 @@
+<mat-drawer-container autosize>
+  <mat-drawer #drawer mode="over" position="end">
+    <div class="sidenav-container">
+      <button mat-stroked-button color="primary" (click)="logout(drawer)">Logout</button>
+    </div>
+  </mat-drawer>
+  <app-header [matDrawerRef]="drawer"></app-header>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+</mat-drawer-container>

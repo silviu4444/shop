@@ -1,0 +1,33 @@
+@import '../../../shared/styles/global-colors.scss';
+@import '../../../shared/styles/shared-styles.scss';
+
+.login-container {
+  @include auth-components-container(100%, 90vh);
+
+  h1 {
+    margin: 100px 0;
+    font-weight: 500;
+    color: black;
+  }
+
+  form {
+    @include custom-form(250px, 270px, 25px 25px 5px);
+
+    .person-icon {
+      color: $primary-color;
+      font-size: 40px;
+      line-height: 0;
+    }
+
+    .valid-input {
+      color: $valid-color;
+    }
+    p {
+      margin-top: 10px;
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+    }
+  }
+}

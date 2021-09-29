@@ -1,0 +1,112 @@
+<div class="register-container">
+  <h1>Register</h1>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <div>
+      <mat-icon><span class="person-icon"> how_to_reg </span></mat-icon>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input
+        id="email"
+        type="email"
+        matInput
+        placeholder="Enter email address"
+        [errorStateMatcher]="matcher"
+        formControlName="email"
+      />
+      <mat-icon *ngIf="signupForm.get('email').valid" matSuffix
+        ><span class="valid-input"> done </span></mat-icon
+      >
+      <mat-error *ngIf="signupForm.get('email').hasError('required')"
+        >Email is <strong> required </strong>!</mat-error
+      >
+      <mat-error
+        *ngIf="
+          signupForm.get('email').hasError('email') &&
+          !signupForm.get('email').hasError['required']
+        "
+      >
+        Enter a valid email!
+      </mat-error>
+      <mat-error *ngIf="signupForm.get('email').hasError('emailExist')"
+        >This email already exist!</mat-error
+      >
+    </mat-form-field>
+    <div formGroupName="passwords" class="password-group">
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input
+          id="password"
+          type="password"
+          matInput
+          placeholder="Enter password"
+          [errorStateMatcher]="matcher"
+          formControlName="password"
+        />
+        <mat-hint
+          *ngIf="
+            signupForm.get('passwords.password').errors?.minlength?.actualLength
+          "
+        >
+          Actual Length:
+          {{
+            signupForm.get('passwords.password').errors.minlength.actualLength
+          }}
+          /
+          {{
+            signupForm.get('passwords.password').errors.minlength.requiredLength
+          }}
+        </mat-hint>
+        <mat-icon *ngIf="signupForm.get('passwords.password').valid" matSuffix
+          ><span class="valid-input"> done </span></mat-icon
+        >
+
+        <mat-error
+          *ngIf="signupForm.get('passwords.password').hasError('required')"
+        >
+          Password is <strong>required</strong>!
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Confirm Password</mat-label>
+        <input
+          id="confirmPassword"
+          type="password"
+          matInput
+          placeholder="Enter password"
+          [errorStateMatcher]="matcher"
+          formControlName="confirmPassword"
+        />
+        <mat-icon *ngIf="signupForm.get('passwords').valid" matSuffix
+          ><span class="valid-input"> done </span></mat-icon
+        >
+        <mat-error
+          *ngIf="
+            signupForm.get('passwords.confirmPassword').hasError('required')
+          "
+        >
+          Password is <strong>required</strong>!
+        </mat-error>
+
+        <mat-error
+          *ngIf="
+            signupForm.get('passwords.confirmPassword').hasError('notSame') &&
+            !signupForm.get('passwords.confirmPassword').hasError('required')
+          "
+        >
+          Password does not match
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <button
+      [disabled]="!signupForm.valid"
+      mat-raised-button
+      type="submit"
+      color="primary"
+    >
+      Register
+      <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+    </button>
+  </form>
+</div>

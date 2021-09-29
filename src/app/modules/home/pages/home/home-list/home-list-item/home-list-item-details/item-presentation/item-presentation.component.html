@@ -1,0 +1,18 @@
+<div class="item-presentation-container">
+  <div class="item-presentation">
+    <img class="main-image" src="{{ colorSelected.imgURL }}" [appImageSrcAnimation]="colorSelected.index + 1"/>
+    <div class="custom-slider" [appSetBorderOnClick]="colorSelected.index">
+      <div
+        class="slider-image"
+        *ngFor="
+          let image of images[colorSelected.colorName];
+          let i = index
+        "
+        [ngClass]="{ 'custom-border': i === 0 }"
+      >
+        <img src="{{ image }}" (click)="changeImage(i)" />
+      </div>
+    </div>
+  </div>
+</div>
+

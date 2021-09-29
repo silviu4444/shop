@@ -1,0 +1,49 @@
+@import '../../../shared/styles/global-colors.scss';
+@import '../../../shared/styles/shared-styles.scss';
+
+.register-container {
+  @include auth-components-container(100%, 90vh);
+
+  h1 {
+    margin: 100px 0;
+  }
+
+  form {
+    @include custom-form(250px, 300px, 25px 25px 15px);
+
+    .person-icon {
+      color: $primary-color;
+      font-size: 30px;
+      line-height: 0;
+    }
+
+    .password-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .valid-input {
+      color: $valid-color;
+    }
+
+    .person-icon {
+      color: $primary-color;
+      font-size: 40px;
+      line-height: 0;
+    }
+
+    .text-success {
+      color: #23923d;
+      font-size: 15px;
+
+      span {
+        position: relative;
+        top: 6px;
+      }
+    }
+
+    button:disabled {
+      cursor: not-allowed;
+    }
+  }
+}

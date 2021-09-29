@@ -1,0 +1,17 @@
+.home-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .align-item-start {
+    align-self: flex-start;
+  }
+
+  .phone-articles, .laptop-articles {
+    display: grid;
+    width: 100%;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    justify-items: center;
+  }
+}

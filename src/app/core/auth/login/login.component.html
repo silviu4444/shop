@@ -1,0 +1,76 @@
+<div class="login-container">
+  <h1>Sign in to continue</h1>
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <div>
+      <mat-icon><span class="person-icon"> person </span></mat-icon>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input
+        type="email"
+        #email="ngModel"
+        email
+        ngModel
+        required
+        matInput
+        name="email"
+        placeholder="Enter email address"
+      />
+      <mat-icon *ngIf="email.untouched && !email.valid" matSuffix
+        >sentiment_very_satisfied</mat-icon
+      >
+      <mat-icon *ngIf="!email.valid && email.touched" matSuffix
+        >sentiment_dissatisfied</mat-icon
+      >
+      <mat-icon *ngIf="email.valid" matSuffix
+        ><span class="valid-input"> done </span></mat-icon
+      >
+      <mat-error *ngIf="email.hasError('required')"
+        >Email is <strong>required</strong></mat-error
+      >
+      <mat-error *ngIf="email.hasError('email') && !email.hasError['required']">
+        Please enter a valid email!
+      </mat-error>
+      <mat-error *ngIf="email.hasError('emailNotExist')">
+        This email does not exist!
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input
+        type="password"
+        #password="ngModel"
+        ngModel
+        required
+        name="password"
+        matInput
+        placeholder="Enter password"
+      />
+      <mat-icon *ngIf="password.untouched && !password.valid" matSuffix
+        >sentiment_very_satisfied</mat-icon
+      >
+      <mat-icon *ngIf="!password.valid && password.touched" matSuffix
+        >sentiment_dissatisfied</mat-icon
+      >
+      <mat-icon *ngIf="password.valid" matSuffix
+        ><span class="valid-input"> done </span></mat-icon
+      >
+      <mat-error *ngIf="password.hasError('required')">
+        Password is <strong>required</strong>!
+      </mat-error>
+      <mat-error *ngIf="password.hasError('pwIncorrect')">
+        Incorrect password!
+      </mat-error>
+    </mat-form-field>
+    <button
+      [disabled]="!loginForm.valid"
+      mat-raised-button
+      type="submit"
+      color="primary"
+    >
+      Login
+      <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+    </button>
+    <p>Not registered yet? <a routerLink="/auth/register">Register</a></p>
+  </form>
+</div>
